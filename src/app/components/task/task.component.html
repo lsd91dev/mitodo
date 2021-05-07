@@ -1,0 +1,35 @@
+<div class="main">
+    <h1 class="main__title"> {{ title }} </h1>
+
+    <form class="form" (ngSubmit)="createTask()" [formGroup]="task_form" autocomplete="off">    
+        <div class="form__input-group form__input-group--task-name">
+            <p class="form__error-message" *ngIf="fieldName.invalid && fieldName.touched"> This field is required </p>
+            <input type="text" name="name" required id="name" formControlName="name" class="form__input">
+            <label for="title" class="form__label"> 
+                <span class="form__label-text"> Task name </span>
+            </label>
+        </div>
+
+        <div class="form__input-group form__input-group--description">
+            <p class="form__error-message" *ngIf="fieldDescription.invalid && fieldDescription.touched"> This field is required </p>
+            
+            <input type="text" name="description" id="description" required formControlName="description" class="form__input">
+            
+            <label for="description" class="form__label"> 
+                <span class="form__label-text"> Description </span> 
+            </label>
+            
+        </div>
+        
+        <div class="form__buttons">
+            <button class="button button-app" [disabled]="task_form.invalid && task_form.touched"> 
+                <span class="button__strong-text">  <fa-icon [icon]="faCheck" class="button__icon"></fa-icon> {{ button_text }}  </span> 
+            </button>
+            <a class="button button--back" routerLink="/home"> 
+                <span class="button__strong-text">  
+                    <fa-icon [icon]="faSignOutAlt" class="button__icon"></fa-icon> Regresar  </span>
+             </a>
+        </div>
+     
+    </form>
+</div>

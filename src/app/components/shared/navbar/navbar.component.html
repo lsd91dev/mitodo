@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <ul class="navitems">
+        <li class="navitems__logo"> <a routerLink="/home" class="navitems__logo-link"> Mitodo App </a></li>
+        <li class="navitems__add-task">   
+            <button class="button button-app" routerLink="/task/new">
+                <span class="button__strong-text"> <fa-icon [icon]="faPlus" class="button__icon"></fa-icon>Add task </span> 
+            </button>
+        </li>
+        
+        <li class="navitems__about">
+            <a href="#" class="button button-link button-app navitems__about-link"> 
+                <fa-icon [icon]="faUser" class="button__icon"></fa-icon><span class="button__strong-text"> About </span> </a>
+        </li>
+      
+    </ul>
+</nav>

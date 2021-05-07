@@ -1,0 +1,36 @@
+<app-navbar class="navbar"></app-navbar>
+
+<div class="main fade">
+
+   <section class="section">
+       <h3 class="section__title"> Task List </h3>
+
+       <section class="section__table">
+           <header class="table__header-group">
+                <div class="table__header-cell table__cell"> Task number </div>
+                <div class="table__header-cell table__cell"> Name </div>
+                <div class="table__header-cell table__cell"> Description </div>
+           </header>
+
+           <div class="table__row" *ngFor="let task of tasks, let i = index">
+            <div class="table__col table__cell table__cell--text-center">{{ i + 1 }}</div>
+            <div class="table__col table__cell">{{ task.getName() }}</div>
+            <div class="table__col table__cell">{{ task.getDescription() }}</div>
+            <div class="table__col table__cell">
+                <button class="button button--remove" (click)="removeTask(task.getId(), i, task.getName())">
+                    <span class="button__strong-text"> Remove </span>
+                    <fa-icon [icon]="faTimes"></fa-icon>
+                </button>
+            </div>
+
+            <div class="table__col table__cell">
+                <a class="button button-link button--edit" [routerLink]="['/task', task.getId()]">
+                     <span class="button__strong-text"> Edit </span> 
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                </a>
+                </div>
+           </div>    
+       </section>
+
+   </section> 
+</div>
